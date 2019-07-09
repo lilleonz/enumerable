@@ -2,5 +2,3 @@ linters:
   rubocop:
     display_cop_names: true
     fixer: true
-  AllCops:
-  TargetRubyVersion: 2.5.1
