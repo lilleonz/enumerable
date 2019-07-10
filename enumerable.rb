@@ -11,7 +11,7 @@ module Enumerable
 
   def my_each_with_index
     for i in 0...self.length
-      yield(self[i],i)
+      yield(self[i], i)
     end
   end
 
@@ -53,11 +53,11 @@ module Enumerable
 
   def my_map(block = nil)
     if block == nil?
-      my_each_with_index{ |element,index| self[index] = yield(element) }
+      my_each_with_index { |element, index| self[index] = yield(element) }
     elsif !block.nil? && block_given?
-      my_each_with_index{ |element,index| self[index] = block.call(element) }
+      my_each_with_index { |element, index| self[index] = block.call(element) }
     elsif block
-      my_each_with_index{ |element,index| self[index] = block.call(element) }
+      my_each_with_index { |element, index| self[index] = block.call(element) }
     end
     self
   end
@@ -81,31 +81,31 @@ def multiply_els(number_list)
 end
 
 # Test cases
-test_array = Array.new(10) { rand(0..100) }
+# test_array = Array.new(10) { rand(0..100) }
 
 # Each
-test_array.my_each { |value| puts "#{value} " }
+# test_array.my_each { |value| puts "#{value} " }
 
 # Each with Index
-test_array.my_each_with_index { |value, index| puts "Index: #{index} - Value: #{value}" }
+# test_array.my_each_with_index { |value, index| puts "Index: #{index} - Value: #{value}" }
 
 # Select
-puts test_array.my_select { |value| (value % 2) == 0 }
+# puts(test_array.my_select) { |value| (value % 2).zero? }
 
 # All
-puts test_array.my_all? { |value| value > 30 }
+# puts(test_array.my_all?) { |value| value > 30 }
 
 # Any
-puts test_array.my_any? { |value| value == 0 }
+# puts(test_array.my_any?) { |value| value & :zero? }
 
 # None
-puts test_array.my_none? { |value| value < 10 }
+# puts(test_array.my_none?) { |value| value < 10 }
 
 # Count
-puts test_array.my_count { |value| (value % 2) != 0 }
+# puts(test_array.my_count) { |value| Integer#odd? }
 
 # Map
-puts test_array.my_map { |value| value > 50 }
+# puts(test_array.my_map) { |value| value > 50 }
 
 # Inject
-puts multiply_els([2,4,5])
+# puts multiply_els([2, 4, 5])
